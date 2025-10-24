@@ -1,0 +1,110 @@
+/* ===== キャンバス：幅→高さが決まる（基準 440×2989） ===== */
+.home{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 440 / 2989;
+  background: #faf7f3;
+  overflow: hidden;
+
+  /* コンテナクエリを有効化（中の%/cqwは .home の幅に追従） */
+  container-type: inline-size;
+}
+
+/* ===== 背景：キャンバス全体にフィット ===== */
+.image-21{
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* ===== 前景共通 ===== */
+.home > *:not(.image-21){
+  position: absolute;
+  z-index: 1;
+  height: auto;
+}
+
+/* ----------------------------------------------------------
+   以降は 440×2989 基準の px を：
+   横方向 → (px / 440 * 100cqw)
+   縦方向 → (px / 440 * 100cqw)  ※高さも幅スケールで決まるため同じ係数
+   太さなど → (px / 440 * 100cqw)
+   ---------------------------------------------------------- */
+
+/* div0.svg：中央揃え＋スケール */
+.div{
+  left: 50%;
+  top:  calc(211.78 / 440 * 100cqw);
+  transform: translateX(-50%);
+  /* 初期幅（仮）→Figmaの実測幅に合わせるならこの1行の数値を変更してください */
+  width: calc(130 / 440 * 100cqw);
+}
+
+/* div1.svg：中央揃え＋スケール */
+.div2{
+  left: 50%;
+  top:  calc(171.76 / 440 * 100cqw);
+  transform: translateX(-50%);
+  /* 初期幅（仮）。必要に応じて数値調整 */
+  width: calc(180 / 440 * 100cqw);
+}
+
+/* logo（左右中央・幅はFigma通りにスケール） */
+.logo{
+  left: 50%;
+  top:  calc(93 / 440 * 100cqw);
+  transform: translateX(-50%);
+  width: calc(130.19 / 440 * 100cqw);
+  aspect-ratio: 130.19 / 26.48;
+}
+
+/* 305×385 の画像ブロック */
+.image-212{
+  left: calc(67 / 440 * 100cqw);
+  top:  calc(323 / 440 * 100cqw);
+  width: calc(305 / 440 * 100cqw);
+}
+
+/* タイトルSVG（幅は自然サイズでOKなら未指定、必要なら width:calc(W/440*100cqw) を追加）*/
+._0-1-0-1-0-1-soul-of-tech{
+  left: calc(49.75 / 440 * 100cqw);
+  top:  calc(810.26 / 440 * 100cqw);
+}
+
+/* ボタン等 */
+.image-17{
+  left: calc(141 / 440 * 100cqw);
+  top:  calc(1182 / 440 * 100cqw);
+  width: calc(299 / 440 * 100cqw);
+}
+
+.image-19{
+  left: calc(60 / 440 * 100cqw);
+  top:  calc(1634 / 440 * 100cqw);
+  width: calc(380 / 440 * 100cqw);
+}
+
+.image-20{
+  left: calc(167 / 440 * 100cqw);
+  top:  calc(2028 / 440 * 100cqw);
+  width: calc(273 / 440 * 100cqw);
+}
+
+/* 線（太さも幅に比例させる） */
+.line-1{
+  left: calc(80 / 440 * 100cqw);
+  top:  calc(294 / 440 * 100cqw);
+  width: calc(280.01 / 440 * 100cqw);
+  height: 0;
+  border-top: calc(3 / 440 * 100cqw) solid #000;
+}
+
+/* タイトルSVG（中央揃え＋背景に同期してスケール） */
+._0-1-0-1-0-1-soul-of-tech {
+  left: 50%;
+  top: calc(810.26 / 440 * 100cqw); /* Figma値から換算 */
+  transform: translateX(-50%);
+  width: calc(340 / 440 * 100cqw);  /* 幅は仮。Figmaの実測値に置き換えてOK */
+  height: auto;
+}
